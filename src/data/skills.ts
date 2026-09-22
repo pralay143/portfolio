@@ -1,0 +1,15 @@
+export const skills: string[] = [
+  "Angular",
+  "TypeScript",
+  "JavaScript",
+  "React",
+  "Next.js",
+  "Node.js",
+  "ASP.NET Core",
+  "C#",
+  "PostgreSQL",
+  "Tailwind CSS",
+  "PrimeNG",
+  "Syncfusion EJ2",
+  "Git",
+];
