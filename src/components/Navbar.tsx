@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useSyncExternalStore } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useState, useSyncExternalStore } from "react";
 
 const links = [
   { href: "/", label: "Home" },
@@ -33,47 +34,81 @@ function setTheme(dark: boolean) {
 }
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const isDark = useSyncExternalStore(
     subscribeToTheme,
     getThemeSnapshot,
     getServerThemeSnapshot,
   );
 
+  useEffect(() => {
+    function onScroll() {
+      setScrolled(window.scrollY > 8);
+    }
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   function toggleTheme() {
     setTheme(!isDark);
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-black/[.08] bg-white/80 backdrop-blur dark:border-white/[.145] dark:bg-black/80">
-      <nav className="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
+    <header
+      className={`sticky top-0 z-50 border-b backdrop-blur-xl transition-all duration-300 ${
+        scrolled
+          ? "border-border bg-background/80 shadow-lg shadow-black/10"
+          : "border-transparent bg-background/40"
+      }`}
+    >
+      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Link
           href="/"
           onClick={() => setMobileOpen(false)}
-          className="font-semibold tracking-tight"
+          className="font-semibold tracking-tight text-foreground transition-colors hover:text-accent"
         >
           Pralay
         </Link>
 
         <div className="flex items-center gap-2">
-          <ul className="hidden gap-6 text-sm font-medium sm:flex">
-            {links.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="text-zinc-600 transition-colors hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-50"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+          <ul className="hidden gap-7 text-sm font-medium sm:flex">
+            {links.map((link) => {
+              const isActive =
+                link.href === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(link.href);
+
+              return (
+                <li key={link.href} className="relative">
+                  <Link
+                    href={link.href}
+                    className={
+                      isActive
+                        ? "text-foreground"
+                        : "text-muted transition-colors duration-200 hover:text-foreground"
+                    }
+                  >
+                    {link.label}
+                  </Link>
+                  <span
+                    aria-hidden
+                    className={`absolute -bottom-2 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-accent shadow-[0_0_8px_var(--accent)] transition-all duration-300 ${
+                      isActive ? "scale-100 opacity-100" : "scale-0 opacity-0"
+                    }`}
+                  />
+                </li>
+              );
+            })}
           </ul>
 
           <button
             type="button"
             onClick={toggleTheme}
             aria-label="Toggle dark mode"
-            className="rounded-full p-2 text-zinc-600 transition-colors hover:bg-black/[.06] hover:text-zinc-950 dark:text-zinc-400 dark:hover:bg-white/[.08] dark:hover:text-zinc-50"
+            className="rounded-full p-2 text-muted transition-colors duration-200 hover:bg-surface-2 hover:text-foreground"
           >
             {isDark ? <SunIcon /> : <MoonIcon />}
           </button>
@@ -83,28 +118,45 @@ export default function Navbar() {
             onClick={() => setMobileOpen((open) => !open)}
             aria-label="Toggle menu"
             aria-expanded={mobileOpen}
-            className="rounded-full p-2 text-zinc-600 transition-colors hover:bg-black/[.06] hover:text-zinc-950 sm:hidden dark:text-zinc-400 dark:hover:bg-white/[.08] dark:hover:text-zinc-50"
+            className="rounded-full p-2 text-muted transition-colors duration-200 hover:bg-surface-2 hover:text-foreground sm:hidden"
           >
             {mobileOpen ? <CloseIcon /> : <MenuIcon />}
           </button>
         </div>
       </nav>
 
-      {mobileOpen && (
-        <ul className="flex flex-col gap-1 border-t border-black/[.08] px-6 py-4 text-sm font-medium sm:hidden dark:border-white/[.145]">
-          {links.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="block rounded-lg px-3 py-2 text-zinc-600 transition-colors hover:bg-black/[.06] hover:text-zinc-950 dark:text-zinc-400 dark:hover:bg-white/[.08] dark:hover:text-zinc-50"
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
+      <div
+        className={`grid transition-[grid-template-rows] duration-300 ease-out sm:hidden ${
+          mobileOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+        }`}
+      >
+        <div className="overflow-hidden">
+          <ul className="flex flex-col gap-1 border-t border-border px-6 py-4 text-sm font-medium">
+            {links.map((link) => {
+              const isActive =
+                link.href === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(link.href);
+
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className={
+                      isActive
+                        ? "block rounded-lg bg-surface-2 px-3 py-2 text-foreground"
+                        : "block rounded-lg px-3 py-2 text-muted transition-colors duration-200 hover:bg-surface-2 hover:text-foreground"
+                    }
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </div>
     </header>
   );
 }

@@ -85,12 +85,12 @@ export default function ContactForm() {
   }
 
   const inputClasses =
-    "rounded-lg border border-black/[.08] bg-transparent px-4 py-2.5 text-sm outline-none transition-colors focus:border-zinc-950 dark:border-white/[.145] dark:focus:border-zinc-50";
+    "rounded-xl border border-border bg-surface-2 px-4 py-2.5 text-sm text-foreground outline-none transition-all duration-200 focus:border-accent focus:shadow-[0_0_0_3px_var(--ring)]";
 
   return (
     <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
       <div className="flex flex-col gap-1.5">
-        <label htmlFor="name" className="text-sm font-medium">
+        <label htmlFor="name" className="text-sm font-medium text-muted">
           Name
         </label>
         <input
@@ -105,14 +105,14 @@ export default function ContactForm() {
           className={inputClasses}
         />
         {errors.name && (
-          <p id="name-error" className="text-sm text-red-600 dark:text-red-400">
+          <p id="name-error" className="text-sm text-red-400">
             {errors.name}
           </p>
         )}
       </div>
 
       <div className="flex flex-col gap-1.5">
-        <label htmlFor="email" className="text-sm font-medium">
+        <label htmlFor="email" className="text-sm font-medium text-muted">
           Email
         </label>
         <input
@@ -127,14 +127,14 @@ export default function ContactForm() {
           className={inputClasses}
         />
         {errors.email && (
-          <p id="email-error" className="text-sm text-red-600 dark:text-red-400">
+          <p id="email-error" className="text-sm text-red-400">
             {errors.email}
           </p>
         )}
       </div>
 
       <div className="flex flex-col gap-1.5">
-        <label htmlFor="message" className="text-sm font-medium">
+        <label htmlFor="message" className="text-sm font-medium text-muted">
           Message
         </label>
         <textarea
@@ -148,7 +148,7 @@ export default function ContactForm() {
           className={`resize-none ${inputClasses}`}
         />
         {errors.message && (
-          <p id="message-error" className="text-sm text-red-600 dark:text-red-400">
+          <p id="message-error" className="text-sm text-red-400">
             {errors.message}
           </p>
         )}
@@ -157,7 +157,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="w-fit rounded-full bg-foreground px-5 py-3 text-sm font-medium text-background transition-colors hover:bg-[#383838] disabled:cursor-not-allowed disabled:opacity-60 dark:hover:bg-[#ccc]"
+        className="w-fit rounded-full bg-accent px-5 py-3 text-sm font-medium text-accent-foreground shadow-[0_0_0_1px_var(--ring)] transition-transform duration-200 hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:scale-100"
       >
         {status === "submitting" ? "Sending..." : "Send Message"}
       </button>
@@ -166,9 +166,7 @@ export default function ContactForm() {
         <p
           role="status"
           className={
-            status === "success"
-              ? "text-sm text-emerald-600 dark:text-emerald-400"
-              : "text-sm text-red-600 dark:text-red-400"
+            status === "success" ? "text-sm text-emerald-400" : "text-sm text-red-400"
           }
         >
           {statusMessage}

@@ -7,6 +7,7 @@ export interface Project {
   liveUrl?: string;
   repoUrl?: string;
   featured?: boolean;
+  primary?: boolean;
 }
 
 export const projects: Project[] = [
@@ -17,9 +18,9 @@ export const projects: Project[] = [
       "Built scalable Gantt chart UI with editable columns using Syncfusion EJ2. Implemented drag-drop for tasks, real-time scheduling updates, and responsive design.",
     tags: ["Angular", "TypeScript", "Syncfusion EJ2", "PrimeNG", "PrimeFlex"],
     image: "/projects/agilic.png",
-    repoUrl: "https://github.com/ui-agilic",
-    liveUrl: "https://agilic.q8tech.com",
+    liveUrl: "https://preprod.agilic4m.com/",
     featured: true,
+    primary: true,
   },
   {
     slug: "vedic-astrology",
@@ -32,13 +33,13 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    slug: "product-crud",
-    title: "Product Management CRUD - ASP.NET",
+    slug: "e-furniture",
+    title: "E-Furniture E-Commerce Platform",
     description:
-      "ASP.NET Core MVC application built in 1 hour. Demonstrates C# expertise, database design, and CRUD operations with PostgreSQL.",
-    tags: ["ASP.NET Core", ".NET 8", "MVC", "PostgreSQL", "C#"],
-    image: "/projects/crud.png",
-    repoUrl: "https://github.com/pralay143/product-crud",
+      "Full-stack e-furniture e-commerce website built with the MERN stack. Developed RESTful APIs for product listings, JWT-based user authentication, and order management, with Redux for global state management.",
+    tags: ["MongoDB", "Express.js", "React", "Node.js", "Redux", "JWT"],
+    image: "/projects/e-furniture.png",
+    repoUrl: "https://github.com/pralay143/MERN-Stack-Project",
     featured: false,
   },
 ];

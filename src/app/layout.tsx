@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Your Name — Portfolio",
-  description: "Software engineer building fast, accessible web applications.",
+  title: "Pralay — Portfolio",
+  description: "Angular Developer building scalable web experiences.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -26,14 +26,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-white text-zinc-950 dark:bg-black dark:text-zinc-50">
+      <body className="flex min-h-full flex-col bg-background text-foreground">
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem("theme");var m=window.matchMedia("(prefers-color-scheme: dark)").matches;var c=document.documentElement.classList;if(t==="dark"||(!t&&m)){c.add("dark")}else if(t==="light"){c.add("light")}}catch(e){}})();`,
+            __html: `(function(){try{var t=localStorage.getItem("theme");var c=document.documentElement.classList;if(t==="light"){c.add("light")}else{c.add("dark")}}catch(e){}})();`,
           }}
         />
         <Navbar />
-        <main className="mx-auto w-full max-w-3xl flex-1 px-6">{children}</main>
+        <main className="mx-auto w-full max-w-6xl flex-1 px-6">{children}</main>
         <Footer />
       </body>
     </html>

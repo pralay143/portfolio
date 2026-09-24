@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ProjectCard from "@/components/ProjectCard";
+import Reveal from "@/components/Reveal";
 import type { Project } from "@/data/projects";
 
 const filters = ["All", "Angular", "React", ".NET"] as const;
@@ -16,7 +17,20 @@ function matchesFilter(project: Project, filter: Filter) {
 
 export default function ProjectsGrid({ projects }: { projects: Project[] }) {
   const [active, setActive] = useState<Filter>("All");
-  const visible = projects.filter((project) => matchesFilter(project, active));
+  const [displayedFilter, setDisplayedFilter] = useState<Filter>("All");
+  const transitioning = active !== displayedFilter;
+
+  useEffect(() => {
+    if (!transitioning) return;
+    const timeout = setTimeout(() => {
+      setDisplayedFilter(active);
+    }, 180);
+    return () => clearTimeout(timeout);
+  }, [active, transitioning]);
+
+  const visible = projects.filter((project) =>
+    matchesFilter(project, displayedFilter),
+  );
 
   return (
     <div className="flex flex-col gap-8">
@@ -27,10 +41,10 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
             type="button"
             onClick={() => setActive(filter)}
             aria-pressed={active === filter}
-            className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+            className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 ${
               active === filter
-                ? "bg-foreground text-background"
-                : "border border-black/[.08] text-zinc-600 hover:bg-black/[.04] dark:border-white/[.145] dark:text-zinc-400 dark:hover:bg-[#1a1a1a]"
+                ? "bg-accent text-accent-foreground shadow-[0_0_12px_var(--ring)]"
+                : "border border-border bg-surface-1 text-muted hover:border-accent/40 hover:text-foreground"
             }`}
           >
             {filter}
@@ -39,15 +53,21 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
       </div>
 
       {visible.length > 0 ? (
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {visible.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
+        <div
+          className={`grid gap-6 transition-all duration-200 ease-out sm:grid-cols-2 lg:grid-cols-3 ${
+            transitioning
+              ? "translate-y-1 scale-[0.98] opacity-0"
+              : "translate-y-0 scale-100 opacity-100"
+          }`}
+        >
+          {visible.map((project, index) => (
+            <Reveal key={project.slug} delay={index * 80}>
+              <ProjectCard project={project} />
+            </Reveal>
           ))}
         </div>
       ) : (
-        <p className="text-sm text-zinc-600 dark:text-zinc-400">
-          No projects match this filter yet.
-        </p>
+        <p className="text-sm text-muted">No projects match this filter yet.</p>
       )}
     </div>
   );

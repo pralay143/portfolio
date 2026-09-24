@@ -1,38 +1,61 @@
-import ContactForm from '@/components/ContactForm';
+import Link from "next/link";
+import Hero from "@/components/Hero";
+import ProjectCard from "@/components/ProjectCard";
+import SkillsGrid from "@/components/SkillsGrid";
+import TechMarquee from "@/components/TechMarquee";
+import Reveal from "@/components/Reveal";
+import { projects } from "@/data/projects";
 
-export default function ContactPage() {
+export default function Home() {
+  const featured = projects.filter((project) => project.featured);
+
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 py-20">
-      <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white">
-          Get In Touch
-        </h1>
-        <p className="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
-          Have a question or want to collaborate? Feel free to reach out. I'll get back to you as soon as possible!
-        </p>
-        
-        <ContactForm />
-
-        {/* Alternative Contact Methods */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="text-center">
-            <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Email</h3>
-            <p className="text-gray-600 dark:text-gray-400">pralaymehta97@gmail.com</p>
-          </div>
-          <div className="text-center">
-            <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">GitHub</h3>
-            <a href="https://github.com/pralay143" className="text-blue-600 hover:underline">
-              github.com/pralay143
-            </a>
-          </div>
-          <div className="text-center">
-            <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">LinkedIn</h3>
-            <a href="https://linkedin.com/in/pralay" className="text-blue-600 hover:underline">
-              linkedin.com/in/pralay
-            </a>
-          </div>
-        </div>
+    <>
+      <Hero />
+      <div className="-mx-6">
+        <TechMarquee />
       </div>
-    </div>
+
+      <section className="flex flex-col gap-6 py-16">
+        <Reveal>
+          <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+            Featured Projects
+          </h2>
+        </Reveal>
+        <div className="grid gap-6 sm:grid-cols-2">
+          {featured.map((project, index) => (
+            <Reveal key={project.slug} delay={index * 100}>
+              <ProjectCard project={project} />
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <section className="flex flex-col gap-6 py-16">
+        <Reveal>
+          <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+            Skills
+          </h2>
+        </Reveal>
+        <SkillsGrid />
+      </section>
+
+      <section className="flex flex-col items-start gap-4 py-16">
+        <Reveal className="flex flex-col items-start gap-4">
+          <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+            Want to see more?
+          </h2>
+          <p className="max-w-xl text-muted">
+            Check out the full list of things I&apos;ve built.
+          </p>
+          <Link
+            href="/projects"
+            className="rounded-full bg-accent px-5 py-3 text-sm font-medium text-accent-foreground shadow-[0_0_0_1px_var(--ring)] transition-transform duration-200 hover:scale-[1.02]"
+          >
+            View All Projects
+          </Link>
+        </Reveal>
+      </section>
+    </>
   );
 }
