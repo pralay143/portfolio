@@ -12,6 +12,7 @@ export const siteConfig = {
   jobTitle: "Angular Developer",
   title: `${name} — Angular Developer`,
   email: "pralaymehta97@gmail.com",
+  location: "Ahmedabad, Gujarat",
   links: {
     github: "https://github.com/pralay143",
     linkedin: "https://linkedin.com/in/mehta-pralay-6555531a1",
