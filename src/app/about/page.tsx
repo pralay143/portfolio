@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/site";
-import { education, experience, type TimelineItem } from "@/data/experience";
+import { education, experience } from "@/data/experience";
 import SkillsGrid from "@/components/SkillsGrid";
 import Reveal from "@/components/Reveal";
+import Timeline from "@/components/Timeline";
 
 export const metadata: Metadata = pageMetadata({
   title: "About",
@@ -10,28 +11,6 @@ export const metadata: Metadata = pageMetadata({
     "Experience, skills, and background of Pralay Mehta, a Junior Angular Developer at Q8 Technologies working with Angular, TypeScript, PrimeNG, ASP.NET Core, and PostgreSQL.",
   path: "/about",
 });
-
-function Timeline({ items }: { items: TimelineItem[] }) {
-  return (
-    <ol className="relative flex flex-col gap-10 border-l border-border pl-8">
-      {items.map((item, index) => (
-        <Reveal key={`${item.title}-${item.period}`} delay={index * 100}>
-          <li className="relative">
-            <span className="absolute top-1.5 -left-[35px] h-3 w-3 rounded-full bg-accent shadow-[0_0_10px_var(--ring)]" />
-            <p className="text-sm font-medium text-subtle">{item.period}</p>
-            <h3 className="mt-1 text-lg font-semibold text-foreground">
-              {item.title}
-            </h3>
-            <p className="text-sm text-muted">{item.organization}</p>
-            <p className="mt-2 max-w-xl text-sm leading-6 text-muted">
-              {item.description}
-            </p>
-          </li>
-        </Reveal>
-      ))}
-    </ol>
-  );
-}
 
 export default function About() {
   return (

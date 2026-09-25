@@ -3,10 +3,14 @@ export interface SkillCategory {
   items: string[];
 }
 
+// The technologies most relevant to frontend/Angular roles. Shown first and
+// emphasized; they are not repeated in the categories below.
+export const coreSkills: string[] = ["Angular", "TypeScript", "RxJS", "PrimeNG"];
+
 export const skillCategories: SkillCategory[] = [
   {
     name: "Frontend",
-    items: ["Angular", "TypeScript", "JavaScript", "React", "Next.js"],
+    items: ["JavaScript", "HTML", "SCSS", "Redux", "React", "Next.js"],
   },
   {
     name: "Backend",
@@ -18,10 +22,6 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     name: "UI & Tools",
-    items: ["Tailwind CSS", "PrimeNG", "Syncfusion EJ2", "Git"],
+    items: ["Tailwind CSS", "Syncfusion EJ2", "Git"],
   },
 ];
-
-export const skills: string[] = skillCategories.flatMap(
-  (category) => category.items,
-);

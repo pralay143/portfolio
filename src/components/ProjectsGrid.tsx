@@ -69,7 +69,7 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
           }`}
         >
           {visible.map((project, index) => (
-            <Reveal key={project.slug} delay={index * 80}>
+            <Reveal key={project.slug} delay={index * 80} className="h-full">
               <ProjectCard project={project} />
             </Reveal>
           ))}

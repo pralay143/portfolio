@@ -4,6 +4,8 @@ export interface Project {
   description: string;
   tags: string[];
   image?: string;
+  /** Describes what the image actually shows. Required when `image` is set. */
+  imageAlt?: string;
   liveUrl?: string;
   repoUrl?: string;
   caseStudyUrl?: string;
@@ -18,19 +20,12 @@ export const projects: Project[] = [
     description:
       "Built scalable Gantt chart UI with editable columns using Syncfusion EJ2. Implemented drag-drop for tasks, real-time scheduling updates, and responsive design.",
     tags: ["Angular", "TypeScript", "Syncfusion EJ2", "PrimeNG", "PrimeFlex"],
-    image: "/projects/agilic.png",
+    image: "/projects/agilic-gantt-illustration.svg",
+    imageAlt:
+      "Illustration of a project-management Gantt chart with an editable task grid, representing the Agilic platform",
     caseStudyUrl: "/projects/agilic",
     featured: true,
     primary: true,
-  },
-  {
-    slug: "todo-list",
-    title: "To-Do List - Angular & ASP.NET Core",
-    description:
-      "Full-stack to-do app with an Angular 18 frontend and a layered ASP.NET Core 8 Web API. Create, edit, delete, and complete tasks, with server-side search and sorting, validation on client and API, and PostgreSQL persistence through EF Core migrations.",
-    tags: ["Angular", "ASP.NET Core", "C#", "EF Core", "PostgreSQL"],
-    image: "/projects/todo-list.png",
-    featured: true,
   },
   {
     slug: "vedic-astrology",
@@ -39,8 +34,20 @@ export const projects: Project[] = [
       "A React and TypeScript single-page application for Vedic astrology readings, built with Vite.",
     tags: ["React", "TypeScript", "Vite"],
     image: "/projects/astrology.png",
+    imageAlt: "Screenshot of the AstroInsight home page from the Vedic Astrology web app",
     repoUrl: "https://github.com/pralay143/astrology-app",
-    featured: false,
+    featured: true,
+  },
+  {
+    slug: "todo-list",
+    title: "To-Do List - Angular & ASP.NET Core",
+    description:
+      "Full-stack to-do app with an Angular 18 frontend and a layered ASP.NET Core 8 Web API. Create, edit, delete, and complete tasks, with server-side search and sorting, validation on client and API, and PostgreSQL persistence through EF Core migrations.",
+    tags: ["Angular", "ASP.NET Core", "C#", "EF Core", "PostgreSQL"],
+    image: "/projects/todo-list.png",
+    imageAlt:
+      "Screenshot of the To-Do List app: a task table with search, sorting, status badges, and edit and delete actions",
+    featured: true,
   },
   {
     slug: "e-furniture",
@@ -49,6 +56,7 @@ export const projects: Project[] = [
       "E-Furniture is a MERN stack e-commerce application for browsing and managing furniture products. It includes customer registration and login, admin and vendor dashboards for managing categories and product listings, and an Express REST API backed by MongoDB with image uploads.",
     tags: ["MongoDB", "Express.js", "React", "Node.js"],
     image: "/projects/e-furniture.png",
+    imageAlt: "Screenshot of the E-Furniture store home page",
     repoUrl: "https://github.com/pralay143/MERN-Stack-Project",
     featured: false,
   },

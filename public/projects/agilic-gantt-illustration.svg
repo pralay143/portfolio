@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" font-family="Geist, 'Segoe UI', Inter, Arial, sans-serif">
+  <!-- Illustrative mockup of a Gantt schedule with an editable task grid.
+       Generic tasks and dates; not a screenshot of any real application. -->
+  <defs>
+    <linearGradient id="bar" x1="0" x2="1">
+      <stop offset="0" stop-color="#7c3aed"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.75" cy="0.1" r="0.8">
+      <stop offset="0" stop-color="#8b5cf6" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#8b5cf6" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#a1a1aa"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="900" fill="#0b0b0f"/>
+  <rect width="1600" height="900" fill="url(#glow)"/>
+
+  <!-- Top bar -->
+  <rect x="0" y="0" width="1600" height="92" fill="#111116"/>
+  <line x1="0" y1="92" x2="1600" y2="92" stroke="#ffffff" stroke-opacity="0.08" stroke-width="2"/>
+  <rect x="48" y="28" width="36" height="36" rx="10" fill="#7c3aed"/>
+  <path d="M58 52 h6 v-10 h6 v10 h6" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="104" y="57" font-size="30" font-weight="600" fill="#f5f5f7">Project schedule</text>
+  <g font-size="22" font-weight="500">
+    <rect x="1236" y="24" width="316" height="44" rx="22" fill="#16161d" stroke="#ffffff" stroke-opacity="0.08"/>
+    <text x="1284" y="53" fill="#a1a1aa" text-anchor="middle">Day</text>
+    <rect x="1330" y="28" width="108" height="36" rx="18" fill="#7c3aed"/>
+    <text x="1384" y="53" fill="#ffffff" text-anchor="middle">Week</text>
+    <text x="1496" y="53" fill="#a1a1aa" text-anchor="middle">Month</text>
+  </g>
+
+  <!-- Grid + timeline header -->
+  <rect x="0" y="92" width="1600" height="64" fill="#0f0f14"/>
+  <g font-size="20" font-weight="600" fill="#6e6e78" letter-spacing="1.5">
+    <text x="48" y="132">TASK</text>
+    <text x="410" y="132">START</text>
+    <text x="540" y="132">DAYS</text>
+  </g>
+  <g font-size="20" fill="#6e6e78" text-anchor="middle">
+    <text x="735" y="132">Mar 03</text>
+    <text x="885" y="132">Mar 10</text>
+    <text x="1035" y="132">Mar 17</text>
+    <text x="1185" y="132">Mar 24</text>
+    <text x="1335" y="132">Mar 31</text>
+    <text x="1485" y="132">Apr 07</text>
+  </g>
+  <line x1="0" y1="156" x2="1600" y2="156" stroke="#ffffff" stroke-opacity="0.08" stroke-width="2"/>
+  <line x1="636" y1="92" x2="636" y2="822" stroke="#ffffff" stroke-opacity="0.12" stroke-width="2"/>
+
+  <!-- Week gridlines -->
+  <g stroke="#ffffff" stroke-opacity="0.05" stroke-width="2">
+    <line x1="810" y1="156" x2="810" y2="822"/>
+    <line x1="960" y1="156" x2="960" y2="822"/>
+    <line x1="1110" y1="156" x2="1110" y2="822"/>
+    <line x1="1260" y1="156" x2="1260" y2="822"/>
+    <line x1="1410" y1="156" x2="1410" y2="822"/>
+  </g>
+
+  <!-- Row separators -->
+  <g stroke="#ffffff" stroke-opacity="0.06" stroke-width="2">
+    <line x1="0" y1="266" x2="1600" y2="266"/>
+    <line x1="0" y1="376" x2="1600" y2="376"/>
+    <line x1="0" y1="486" x2="1600" y2="486"/>
+    <line x1="0" y1="596" x2="1600" y2="596"/>
+    <line x1="0" y1="706" x2="1600" y2="706"/>
+    <line x1="0" y1="822" x2="1600" y2="822"/>
+  </g>
+
+  <!-- Selected row (being edited) -->
+  <rect x="0" y="378" width="1600" height="106" fill="#8b5cf6" fill-opacity="0.07"/>
+
+  <!-- Task grid -->
+  <g font-size="26" fill="#f5f5f7">
+    <text x="48" y="220">Discovery</text>
+    <text x="48" y="330">Wireframes</text>
+    <text x="48" y="440">UI components</text>
+    <text x="48" y="550">API integration</text>
+    <text x="48" y="660">Scheduling</text>
+    <text x="48" y="770">Release</text>
+  </g>
+  <g font-size="24" fill="#a1a1aa">
+    <text x="410" y="220">Mar 03</text>
+    <text x="410" y="330">Mar 11</text>
+    <text x="410" y="440">Mar 18</text>
+    <text x="410" y="550">Mar 20</text>
+    <text x="410" y="660">Mar 31</text>
+    <text x="410" y="770">Apr 10</text>
+    <text x="540" y="220">5</text>
+    <text x="540" y="330">5</text>
+    <text x="540" y="550">8</text>
+    <text x="540" y="660">5</text>
+    <text x="540" y="770">—</text>
+  </g>
+  <!-- Editable cell -->
+  <rect x="524" y="404" width="92" height="54" rx="10" fill="#16161d" stroke="#a78bfa" stroke-width="3"/>
+  <text x="542" y="441" font-size="26" fill="#f5f5f7">8</text>
+  <rect x="562" y="415" width="3" height="32" fill="#a78bfa"/>
+
+  <!-- Gantt bars: track + progress -->
+  <g>
+    <rect x="660" y="193" width="150" height="36" rx="18" fill="url(#bar)"/>
+    <rect x="840" y="303" width="150" height="36" rx="18" fill="url(#bar)"/>
+    <rect x="1020" y="413" width="240" height="36" rx="18" fill="#8b5cf6" fill-opacity="0.28"/>
+    <rect x="1020" y="413" width="126" height="36" rx="18" fill="url(#bar)"/>
+    <rect x="1080" y="523" width="240" height="36" rx="18" fill="#8b5cf6" fill-opacity="0.28"/>
+    <rect x="1080" y="523" width="72" height="36" rx="18" fill="url(#bar)"/>
+    <rect x="1290" y="633" width="150" height="36" rx="18" fill="#8b5cf6" fill-opacity="0.28"/>
+    <rect x="1466" y="727" width="30" height="30" rx="4" fill="#a78bfa" transform="rotate(45 1481 742)"/>
+  </g>
+
+  <!-- Dependencies -->
+  <g stroke="#a1a1aa" stroke-opacity="0.8" stroke-width="2.5" fill="none" marker-end="url(#arrow)">
+    <path d="M810 211 H825 V321 H836"/>
+    <path d="M990 321 H1005 V431 H1016"/>
+    <path d="M1260 431 H1275 V651 H1286"/>
+    <path d="M1440 651 H1452 V742 H1456"/>
+  </g>
+
+  <!-- Today marker -->
+  <line x1="1146" y1="170" x2="1146" y2="822" stroke="#a78bfa" stroke-width="3" stroke-dasharray="10 8"/>
+  <rect x="1106" y="162" width="80" height="30" rx="15" fill="#7c3aed"/>
+  <text x="1146" y="183" font-size="18" font-weight="600" fill="#ffffff" text-anchor="middle">Today</text>
+
+  <!-- Label -->
+  <rect x="1330" y="842" width="226" height="40" rx="20" fill="#16161d" stroke="#ffffff" stroke-opacity="0.12"/>
+  <text x="1443" y="868" font-size="19" fill="#a1a1aa" text-anchor="middle">Illustrative mockup</text>
+</svg>

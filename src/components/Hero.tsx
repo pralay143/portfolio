@@ -1,5 +1,6 @@
 import Link from "next/link";
 import HeroCodeCard from "@/components/HeroCodeCard";
+import { ctaStyles } from "@/components/ctaStyles";
 
 export default function Hero() {
   return (
@@ -41,7 +42,7 @@ export default function Hero() {
           <div className="animate-fade-in-up flex flex-wrap gap-4 [animation-delay:350ms]">
             <Link
               href="/projects"
-              className="group relative overflow-hidden rounded-full bg-accent px-5 py-3 text-sm font-medium text-accent-foreground shadow-[0_0_0_1px_var(--ring),0_8px_24px_-8px_var(--ring)] transition-transform duration-300 hover:scale-[1.02] hover:shadow-[0_0_0_1px_var(--ring),0_12px_32px_-8px_var(--ring)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-strong"
+              className={ctaStyles.filled}
             >
               View Projects
             </Link>
@@ -49,13 +50,13 @@ export default function Hero() {
               href="/resume.pdf"
               download
               aria-label="Download CV (PDF)"
-              className="rounded-full border border-accent/60 bg-accent/10 px-5 py-3 text-sm font-medium text-foreground transition-all duration-300 hover:scale-[1.02] hover:border-accent hover:bg-accent/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-strong"
+              className={ctaStyles.accent}
             >
               Download CV
             </a>
             <Link
               href="/contact"
-              className="rounded-full border border-foreground/20 bg-surface-1/60 px-5 py-3 text-sm font-medium text-foreground transition-all duration-300 hover:scale-[1.02] hover:border-accent hover:bg-surface-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-strong"
+              className={ctaStyles.neutral}
             >
               Contact Me
             </Link>

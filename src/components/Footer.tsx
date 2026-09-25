@@ -1,4 +1,7 @@
-import { GitHubIcon, LinkedInIcon } from "@/components/icons";
+import { GitHubIcon, LinkedInIcon, MailIcon } from "@/components/icons";
+
+const iconLinkClass =
+  "rounded-full border border-border bg-surface-2 p-2.5 text-muted transition-all duration-200 hover:border-accent/40 hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-strong";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -22,7 +25,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub profile (opens in a new tab)"
-              className="rounded-full border border-border bg-surface-2 p-2.5 text-muted transition-all duration-200 hover:border-accent/40 hover:text-accent"
+              className={iconLinkClass}
             >
               <GitHubIcon />
             </a>
@@ -31,9 +34,16 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn profile (opens in a new tab)"
-              className="rounded-full border border-border bg-surface-2 p-2.5 text-muted transition-all duration-200 hover:border-accent/40 hover:text-accent"
+              className={iconLinkClass}
             >
               <LinkedInIcon />
+            </a>
+            <a
+              href="mailto:pralaymehta97@gmail.com"
+              aria-label="Email pralaymehta97@gmail.com"
+              className={iconLinkClass}
+            >
+              <MailIcon />
             </a>
           </div>
           <div className="flex flex-col items-start gap-1 text-sm text-subtle sm:items-end">

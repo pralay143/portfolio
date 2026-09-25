@@ -44,7 +44,7 @@ export default function AgilicCaseStudy() {
           <div className="relative aspect-video overflow-hidden rounded-2xl border border-border bg-surface-1">
             <Image
               src={project.image}
-              alt="Agilic branding"
+              alt={project.imageAlt ?? ""}
               fill
               sizes="(min-width: 1024px) 60vw, 100vw"
               className="object-cover"
