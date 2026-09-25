@@ -28,7 +28,7 @@ function getActions(project: Project): CardAction[] {
       key: "case-study",
       node: (className) => (
         <Link href={href} className={className}>
-          View Project
+          View Case Study
           <span className="sr-only">: {project.title}</span>
         </Link>
       ),

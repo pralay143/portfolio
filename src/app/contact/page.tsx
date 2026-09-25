@@ -3,11 +3,12 @@ import { pageMetadata } from "@/lib/site";
 import ContactForm from "@/components/ContactForm";
 import Reveal from "@/components/Reveal";
 import { GitHubIcon, LinkedInIcon, MailIcon } from "@/components/icons";
+import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = pageMetadata({
   title: "Contact",
   description:
-    "Contact Pralay Mehta about frontend and Angular developer opportunities. Send a message, or connect by email, GitHub, or LinkedIn.",
+    `Contact ${siteConfig.name} about frontend and Angular developer opportunities. Send a message, or connect by email, GitHub, or LinkedIn.`,
   path: "/contact",
 });
 
@@ -36,14 +37,14 @@ export default function Contact() {
               Other ways to reach me
             </h2>
             <a
-              href="mailto:pralaymehta97@gmail.com"
+              href={`mailto:${siteConfig.email}`}
               className="inline-flex items-center gap-2 text-sm font-medium text-muted transition-colors duration-200 hover:text-accent"
             >
               <MailIcon />
-              pralaymehta97@gmail.com
+              {siteConfig.email}
             </a>
             <a
-              href="https://github.com/pralay143"
+              href={siteConfig.links.github}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm font-medium text-muted transition-colors duration-200 hover:text-accent"
@@ -52,7 +53,7 @@ export default function Contact() {
               GitHub
             </a>
             <a
-              href="https://linkedin.com/in/mehta-pralay-6555531a1"
+              href={siteConfig.links.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm font-medium text-muted transition-colors duration-200 hover:text-accent"

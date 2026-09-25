@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import { siteConfig } from "@/config/site";
 
-export const siteName = "Pralay Mehta";
-export const siteTitle = "Pralay Mehta — Angular Developer";
+export const siteName = siteConfig.name;
+export const siteTitle = siteConfig.title;
 export const homeDescription =
   "Angular developer with 2+ years building a production project-management platform. Explore projects and experience — open to frontend and Angular roles.";
 
@@ -27,7 +28,7 @@ const shareImage = {
   url: "/opengraph-image",
   width: 1200,
   height: 630,
-  alt: "Pralay Mehta — Angular Developer. Angular, TypeScript, ASP.NET Core, PostgreSQL.",
+  alt: `${siteConfig.title}. Angular, TypeScript, ASP.NET Core, PostgreSQL.`,
 };
 
 // Next.js merges metadata shallowly, so a page that sets `openGraph` or

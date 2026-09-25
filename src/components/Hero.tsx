@@ -1,6 +1,7 @@
 import Link from "next/link";
 import HeroCodeCard from "@/components/HeroCodeCard";
 import { ctaStyles } from "@/components/ctaStyles";
+import { siteConfig } from "@/config/site";
 
 export default function Hero() {
   return (
@@ -29,7 +30,7 @@ export default function Hero() {
             Open to frontend roles · Ahmedabad / Remote
           </p>
           <h1 className="animate-fade-in-up text-5xl font-semibold tracking-tight text-balance [animation-delay:75ms] sm:text-6xl lg:text-7xl">
-            Hi, I&apos;m Pralay Mehta
+            Hi, I&apos;m {siteConfig.name}
           </h1>
           <p className="animate-fade-in-up [animation-delay:150ms] text-lg font-medium text-muted sm:text-xl">
             Angular Developer at Q8 Technologies

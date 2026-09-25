@@ -5,11 +5,12 @@ import SkillsGrid from "@/components/SkillsGrid";
 import Reveal from "@/components/Reveal";
 import ExperienceTimeline, { EducationTimeline } from "@/components/Timeline";
 import { ctaStyles } from "@/components/ctaStyles";
+import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = pageMetadata({
   title: "About",
   description:
-    "Experience, skills, and background of Pralay Mehta, a Junior Angular Developer at Q8 Technologies working with Angular, TypeScript, PrimeNG, ASP.NET Core, and PostgreSQL.",
+    `Experience, skills, and background of ${siteConfig.name}, a Junior Angular Developer at Q8 Technologies working with Angular, TypeScript, PrimeNG, ASP.NET Core, and PostgreSQL.`,
   path: "/about",
 });
 
@@ -35,10 +36,10 @@ function ProfileCard() {
           aria-hidden
           className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-accent-solid text-lg font-semibold text-accent-foreground shadow-[0_0_16px_var(--ring)]"
         >
-          PM
+          {siteConfig.initials}
         </span>
         <div>
-          <p className="font-semibold text-foreground">Pralay Mehta</p>
+          <p className="font-semibold text-foreground">{siteConfig.name}</p>
           <p className="text-sm text-muted">
             Junior Angular Developer · Q8 Technologies
           </p>
@@ -92,7 +93,7 @@ export default function About() {
             About Me
           </h1>
           <p className="max-w-2xl text-lg leading-8 text-muted">
-            I&apos;m Pralay Mehta, a Junior Angular Developer at Q8 Technologies.
+            I&apos;m {siteConfig.name}, a Junior Angular Developer at Q8 Technologies.
             I build scalable, responsive front-end applications and enjoy turning
             complex requirements — real-time scheduling, editable data grids,
             drag-and-drop interfaces — into interfaces that feel simple to use.

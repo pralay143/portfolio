@@ -35,7 +35,7 @@ export default function AgilicCaseStudy() {
           ← Back to Projects
         </Link>
         <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-          Agilic — Project Case Study
+          Agilic: Project Case Study
         </h1>
       </Reveal>
 

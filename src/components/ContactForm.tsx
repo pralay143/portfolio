@@ -21,6 +21,8 @@ function validate(values: FormValues): FormErrors {
     errors.name = "Please enter your name.";
   } else if (values.name.trim().length < 2) {
     errors.name = "Name must be at least 2 characters.";
+  } else if (values.name.trim().length > 100) {
+    errors.name = "Name must be 100 characters or fewer.";
   }
 
   if (!values.email.trim()) {
@@ -33,6 +35,8 @@ function validate(values: FormValues): FormErrors {
     errors.message = "Please enter a message.";
   } else if (values.message.trim().length < 10) {
     errors.message = "Message must be at least 10 characters.";
+  } else if (values.message.trim().length > 5000) {
+    errors.message = "Message must be 5000 characters or fewer.";
   }
 
   return errors;

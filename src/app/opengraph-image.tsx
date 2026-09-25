@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
+import { siteConfig } from "@/config/site";
 
-export const alt =
-  "Pralay Mehta — Angular Developer. Angular, TypeScript, ASP.NET Core, PostgreSQL.";
+export const alt = `${siteConfig.title}. Angular, TypeScript, ASP.NET Core, PostgreSQL.`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -53,7 +53,7 @@ export default function Image() {
             letterSpacing: "-0.03em",
           }}
         >
-          Pralay Mehta
+          {siteConfig.name}
         </div>
         <div style={{ marginTop: 8, fontSize: 44, color: "#a1a1aa" }}>
           Angular Developer · 2+ years in production

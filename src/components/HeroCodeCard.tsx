@@ -1,6 +1,7 @@
 // Decorative editor-style card for the hero. It restates the hero copy as a
 // TypeScript object (it is not a real source file), so it is hidden from
 // assistive technology.
+import { siteConfig } from "@/config/site";
 
 type Token = [text: string, className?: string];
 
@@ -22,6 +23,8 @@ const lines: Token[][] = [
   [["};", punct]],
 ];
 
+const fileName = `${siteConfig.name.toLowerCase().replace(/\s+/g, "-")}.ts`;
+
 const timeline = [
   { label: "Gantt", start: 0, width: 46 },
   { label: "Scheduling", start: 30, width: 42 },
@@ -40,7 +43,7 @@ export default function HeroCodeCard() {
           <span className="h-2.5 w-2.5 rounded-full bg-border-strong" />
           <span className="h-2.5 w-2.5 rounded-full bg-accent/70" />
         </div>
-        <span className="font-mono text-xs text-muted">pralay-mehta.ts</span>
+        <span className="font-mono text-xs text-muted">{fileName}</span>
       </div>
 
       <pre className="overflow-hidden px-4 py-4 font-mono text-[12.5px] leading-6 sm:px-5 sm:text-[13.5px]">

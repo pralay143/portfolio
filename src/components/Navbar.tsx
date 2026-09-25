@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState, useSyncExternalStore } from "react";
+import { siteConfig } from "@/config/site";
 
 const links = [
   { href: "/", label: "Home" },
@@ -70,7 +71,7 @@ export default function Navbar() {
           onClick={() => setMobileOpen(false)}
           className="font-semibold tracking-tight text-foreground transition-colors hover:text-accent"
         >
-          Pralay Mehta
+          {siteConfig.name}
         </Link>
 
         <div className="flex items-center gap-2">

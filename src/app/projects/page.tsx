@@ -3,11 +3,12 @@ import { pageMetadata } from "@/lib/site";
 import ProjectsGrid from "@/components/ProjectsGrid";
 import Reveal from "@/components/Reveal";
 import { projects } from "@/data/projects";
+import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = pageMetadata({
   title: "Projects",
   description:
-    "Projects by Pralay Mehta built with Angular, ASP.NET Core, React, and Next.js, from a production project-management dashboard to full-stack side projects.",
+    `Projects by ${siteConfig.name} built with Angular, ASP.NET Core, React, and Next.js, from a production project-management dashboard to full-stack side projects.`,
   path: "/projects",
 });
 
