@@ -6,6 +6,7 @@ export interface Project {
   image?: string;
   liveUrl?: string;
   repoUrl?: string;
+  caseStudyUrl?: string;
   featured?: boolean;
   primary?: boolean;
 }
@@ -18,7 +19,7 @@ export const projects: Project[] = [
       "Built scalable Gantt chart UI with editable columns using Syncfusion EJ2. Implemented drag-drop for tasks, real-time scheduling updates, and responsive design.",
     tags: ["Angular", "TypeScript", "Syncfusion EJ2", "PrimeNG", "PrimeFlex"],
     image: "/projects/agilic.png",
-    liveUrl: "https://preprod.agilic4m.com/",
+    caseStudyUrl: "/projects/agilic",
     featured: true,
     primary: true,
   },
@@ -26,8 +27,8 @@ export const projects: Project[] = [
     slug: "vedic-astrology",
     title: "Vedic Astrology Web App",
     description:
-      "Full-stack React application for Vedic astrology readings. Developed with Next.js, server-side rendering, REST API integration with Node.js backend.",
-    tags: ["React", "Next.js", "Node.js", "TypeScript", "Tailwind CSS"],
+      "A React and TypeScript single-page application for Vedic astrology readings, built with Vite.",
+    tags: ["React", "TypeScript", "Vite"],
     image: "/projects/astrology.png",
     repoUrl: "https://github.com/pralay143/astrology-app",
     featured: true,

@@ -15,13 +15,14 @@ export default function About() {
           About Me
         </h1>
         <p className="max-w-2xl text-lg leading-8 text-muted">
-          I&apos;m Pralay, an Angular Developer at Q8 Technologies. I build
-          scalable, responsive front-end applications and enjoy turning
+          I&apos;m Pralay, a Junior Angular Developer at Q8 Technologies. I
+          build scalable, responsive front-end applications and enjoy turning
           complex requirements — real-time scheduling, editable data grids,
           drag-and-drop interfaces — into interfaces that feel simple to use.
-          I hold a B.Tech in Information Technology (2023) and work across
-          the stack when a project calls for it, from Angular and React on
-          the front end to ASP.NET Core and PostgreSQL on the back end.
+          I hold a B.E. in Information Technology (2018 — 2022) and work
+          across the stack when a project calls for it, from Angular and
+          React on the front end to ASP.NET Core and PostgreSQL on the back
+          end.
         </p>
       </Reveal>
 
@@ -34,7 +35,7 @@ export default function About() {
                 Education
               </dt>
               <dd className="mt-2 font-medium text-foreground">
-                B.Tech, Information Technology (2023)
+                B.E., Information Technology (2018 — 2022)
               </dd>
             </div>
           </Reveal>
@@ -44,7 +45,7 @@ export default function About() {
                 Current Role
               </dt>
               <dd className="mt-2 font-medium text-foreground">
-                Angular Developer, Q8 Technologies
+                Junior Angular Developer, Q8 Technologies
               </dd>
             </div>
           </Reveal>

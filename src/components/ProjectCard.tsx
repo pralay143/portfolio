@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Project } from "@/data/projects";
 import SkillBadge from "@/components/SkillBadge";
 import { GitHubIcon, ExternalLinkIcon } from "@/components/icons";
@@ -44,16 +45,25 @@ export default function ProjectCard({ project }: { project: Project }) {
           ))}
         </ul>
         <div className="mt-auto flex gap-3 pt-2 text-sm font-medium">
-          {project.liveUrl && (
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+          {project.caseStudyUrl ? (
+            <Link
+              href={project.caseStudyUrl}
               className="inline-flex items-center gap-1.5 rounded-full bg-accent px-4 py-2 text-accent-foreground transition-transform duration-200 hover:scale-[1.03]"
             >
-              Live Demo
-              <ExternalLinkIcon />
-            </a>
+              View Case Study
+            </Link>
+          ) : (
+            project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-full bg-accent px-4 py-2 text-accent-foreground transition-transform duration-200 hover:scale-[1.03]"
+              >
+                Live Demo
+                <ExternalLinkIcon />
+              </a>
+            )
           )}
           {project.repoUrl && (
             <a
