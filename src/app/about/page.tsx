@@ -1,11 +1,37 @@
 import type { Metadata } from "next";
-import { experience } from "@/data/experience";
+import { pageMetadata } from "@/lib/site";
+import { education, experience, type TimelineItem } from "@/data/experience";
 import SkillsGrid from "@/components/SkillsGrid";
 import Reveal from "@/components/Reveal";
 
-export const metadata: Metadata = {
-  title: "About — Pralay",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "About",
+  description:
+    "Experience, skills, and background of Pralay Mehta, a Junior Angular Developer at Q8 Technologies working with Angular, TypeScript, PrimeNG, ASP.NET Core, and PostgreSQL.",
+  path: "/about",
+});
+
+function Timeline({ items }: { items: TimelineItem[] }) {
+  return (
+    <ol className="relative flex flex-col gap-10 border-l border-border pl-8">
+      {items.map((item, index) => (
+        <Reveal key={`${item.title}-${item.period}`} delay={index * 100}>
+          <li className="relative">
+            <span className="absolute top-1.5 -left-[35px] h-3 w-3 rounded-full bg-accent shadow-[0_0_10px_var(--ring)]" />
+            <p className="text-sm font-medium text-subtle">{item.period}</p>
+            <h3 className="mt-1 text-lg font-semibold text-foreground">
+              {item.title}
+            </h3>
+            <p className="text-sm text-muted">{item.organization}</p>
+            <p className="mt-2 max-w-xl text-sm leading-6 text-muted">
+              {item.description}
+            </p>
+          </li>
+        </Reveal>
+      ))}
+    </ol>
+  );
+}
 
 export default function About() {
   return (
@@ -15,14 +41,13 @@ export default function About() {
           About Me
         </h1>
         <p className="max-w-2xl text-lg leading-8 text-muted">
-          I&apos;m Pralay, a Junior Angular Developer at Q8 Technologies. I
-          build scalable, responsive front-end applications and enjoy turning
+          I&apos;m Pralay Mehta, a Junior Angular Developer at Q8 Technologies.
+          I build scalable, responsive front-end applications and enjoy turning
           complex requirements — real-time scheduling, editable data grids,
           drag-and-drop interfaces — into interfaces that feel simple to use.
-          I hold a B.E. in Information Technology (2018 — 2022) and work
-          across the stack when a project calls for it, from Angular and
-          React on the front end to ASP.NET Core and PostgreSQL on the back
-          end.
+          I hold a B.E. in Information Technology and work across the stack
+          when a project calls for it, from Angular and React on the front end
+          to ASP.NET Core and PostgreSQL on the back end.
         </p>
       </Reveal>
 
@@ -32,20 +57,20 @@ export default function About() {
           <Reveal>
             <div className="rounded-2xl border border-border bg-surface-1 p-5 transition-colors duration-300 hover:border-border-strong">
               <dt className="text-xs font-semibold tracking-wide text-subtle uppercase">
-                Education
+                Current Role
               </dt>
               <dd className="mt-2 font-medium text-foreground">
-                B.E., Information Technology (2018 — 2022)
+                Junior Angular Developer, Q8 Technologies
               </dd>
             </div>
           </Reveal>
           <Reveal delay={80}>
             <div className="rounded-2xl border border-border bg-surface-1 p-5 transition-colors duration-300 hover:border-border-strong">
               <dt className="text-xs font-semibold tracking-wide text-subtle uppercase">
-                Current Role
+                Location
               </dt>
               <dd className="mt-2 font-medium text-foreground">
-                Junior Angular Developer, Q8 Technologies
+                Ahmedabad, Gujarat · Open to new roles
               </dd>
             </div>
           </Reveal>
@@ -59,25 +84,12 @@ export default function About() {
 
       <div className="flex flex-col gap-4">
         <h2 className="text-xl font-semibold tracking-tight">Experience</h2>
-        <ol className="relative flex flex-col gap-10 border-l border-border pl-8">
-          {experience.map((item, index) => (
-            <Reveal key={`${item.title}-${item.period}`} delay={index * 100}>
-              <li className="relative">
-                <span className="absolute top-1.5 -left-[35px] h-3 w-3 rounded-full bg-accent shadow-[0_0_10px_var(--ring)]" />
-                <p className="text-sm font-medium text-subtle">
-                  {item.period}
-                </p>
-                <h3 className="mt-1 text-lg font-semibold text-foreground">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-muted">{item.organization}</p>
-                <p className="mt-2 max-w-xl text-sm leading-6 text-muted">
-                  {item.description}
-                </p>
-              </li>
-            </Reveal>
-          ))}
-        </ol>
+        <Timeline items={experience} />
+      </div>
+
+      <div className="flex flex-col gap-4">
+        <h2 className="text-xl font-semibold tracking-tight">Education</h2>
+        <Timeline items={education} />
       </div>
     </section>
   );

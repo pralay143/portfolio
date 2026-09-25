@@ -1,22 +1,27 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import ContactForm from "@/components/ContactForm";
 import Reveal from "@/components/Reveal";
 import { GitHubIcon, LinkedInIcon, MailIcon } from "@/components/icons";
 
-export const metadata: Metadata = {
-  title: "Contact — Pralay",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Contact",
+  description:
+    "Contact Pralay Mehta about frontend and Angular developer opportunities. Send a message, or connect by email, GitHub, or LinkedIn.",
+  path: "/contact",
+});
 
 export default function Contact() {
   return (
     <section className="flex flex-col gap-10 py-24">
       <Reveal className="flex flex-col gap-3">
-        <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-          Get in Touch
+        <h1 className="text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
+          Hiring for a frontend role? Let&apos;s talk.
         </h1>
         <p className="max-w-xl text-muted">
-          Have a project in mind or just want to say hi? Fill out the form
-          below, or reach me directly through email or social.
+          I&apos;m open to frontend and Angular opportunities. Feel free to
+          reach out through the form below, or contact me directly by email
+          or LinkedIn to discuss potential roles.
         </p>
       </Reveal>
 

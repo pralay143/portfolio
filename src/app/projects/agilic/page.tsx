@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import SkillBadge from "@/components/SkillBadge";
 import { projects } from "@/data/projects";
 
-export const metadata: Metadata = {
-  title: "Agilic Case Study — Pralay",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Agilic Case Study",
+  description:
+    "Agilic case study: a production project-management platform with a Syncfusion Gantt chart, editable columns, drag-and-drop tasks, and reusable Angular and PrimeNG components.",
+  path: "/projects/agilic",
+});
 
 const contributions = [
   "Led frontend development of a production project management platform, owning end-to-end feature delivery from design to deployment.",

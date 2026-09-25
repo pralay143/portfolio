@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import ProjectsGrid from "@/components/ProjectsGrid";
 import Reveal from "@/components/Reveal";
 import { projects } from "@/data/projects";
 
-export const metadata: Metadata = {
-  title: "Projects — Pralay",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Projects",
+  description:
+    "Projects by Pralay Mehta built with Angular, ASP.NET Core, React, and Next.js, from a production project-management dashboard to full-stack side projects.",
+  path: "/projects",
+});
 
 export default function Projects() {
   return (

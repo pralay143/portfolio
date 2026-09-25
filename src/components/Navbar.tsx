@@ -70,7 +70,7 @@ export default function Navbar() {
           onClick={() => setMobileOpen(false)}
           className="font-semibold tracking-tight text-foreground transition-colors hover:text-accent"
         >
-          Pralay
+          Pralay Mehta
         </Link>
 
         <div className="flex items-center gap-2">

@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-10 sm:flex-row sm:items-start sm:justify-between">
         <div className="flex flex-col gap-2">
           <p className="font-semibold tracking-tight text-foreground">
-            Pralay
+            Pralay Mehta
           </p>
           <p className="max-w-xs text-sm text-muted">
             Angular Developer building scalable web experiences.
@@ -21,7 +21,7 @@ export default function Footer() {
               href="https://github.com/pralay143"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="GitHub"
+              aria-label="GitHub profile (opens in a new tab)"
               className="rounded-full border border-border bg-surface-2 p-2.5 text-muted transition-all duration-200 hover:border-accent/40 hover:text-accent"
             >
               <GitHubIcon />
@@ -30,14 +30,14 @@ export default function Footer() {
               href="https://linkedin.com/in/mehta-pralay-6555531a1"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="LinkedIn"
+              aria-label="LinkedIn profile (opens in a new tab)"
               className="rounded-full border border-border bg-surface-2 p-2.5 text-muted transition-all duration-200 hover:border-accent/40 hover:text-accent"
             >
               <LinkedInIcon />
             </a>
           </div>
           <div className="flex flex-col items-start gap-1 text-sm text-subtle sm:items-end">
-            <p>&copy; {year} Pralay. All rights reserved.</p>
+            <p>&copy; {year} Pralay Mehta. All rights reserved.</p>
             <p className="flex items-center gap-1 text-xs">
               Built with Next.js and
               <span

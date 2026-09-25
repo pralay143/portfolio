@@ -1,17 +1,17 @@
-export interface ExperienceItem {
+export interface TimelineItem {
   title: string;
   organization: string;
   period: string;
   description: string;
 }
 
-export const experience: ExperienceItem[] = [
+export const experience: TimelineItem[] = [
   {
-    title: "B.E., Information Technology",
-    organization: "Government Engineering College Modasa",
-    period: "2018 — 2022",
+    title: "Software Engineer Intern",
+    organization: "Grownited Pvt. Ltd",
+    period: "January 2023 — May 2023",
     description:
-      "Completed a Bachelor of Engineering in Information Technology.",
+      "Built a full-stack e-furniture e-commerce website using the MERN stack (MongoDB, Express.js, React, Node.js), and used Git and GitHub for version control in a collaborative team environment.",
   },
   {
     title: "Angular Developer Intern",
@@ -26,5 +26,15 @@ export const experience: ExperienceItem[] = [
     period: "August 2024 — Present",
     description:
       "Leading frontend development of a production project management platform (Agilic): built and maintained 15+ reusable Angular components with PrimeNG and PrimeFlex, integrated REST APIs across 4 core modules, and implemented Angular lazy loading and route guards to improve page load performance.",
+  },
+];
+
+export const education: TimelineItem[] = [
+  {
+    title: "B.E., Information Technology",
+    organization: "Government Engineering College Modasa",
+    period: "2018 — 2022",
+    description:
+      "Completed a Bachelor of Engineering in Information Technology.",
   },
 ];

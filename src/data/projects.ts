@@ -24,6 +24,15 @@ export const projects: Project[] = [
     primary: true,
   },
   {
+    slug: "todo-list",
+    title: "To-Do List - Angular & ASP.NET Core",
+    description:
+      "Full-stack to-do app with an Angular 18 frontend and a layered ASP.NET Core 8 Web API. Create, edit, delete, and complete tasks, with server-side search and sorting, validation on client and API, and PostgreSQL persistence through EF Core migrations.",
+    tags: ["Angular", "ASP.NET Core", "C#", "EF Core", "PostgreSQL"],
+    image: "/projects/todo-list.png",
+    featured: true,
+  },
+  {
     slug: "vedic-astrology",
     title: "Vedic Astrology Web App",
     description:
@@ -31,16 +40,25 @@ export const projects: Project[] = [
     tags: ["React", "TypeScript", "Vite"],
     image: "/projects/astrology.png",
     repoUrl: "https://github.com/pralay143/astrology-app",
-    featured: true,
+    featured: false,
   },
   {
     slug: "e-furniture",
     title: "E-Furniture E-Commerce Platform",
     description:
-      "Full-stack e-furniture e-commerce website built with the MERN stack. Developed RESTful APIs for product listings, JWT-based user authentication, and order management, with Redux for global state management.",
-    tags: ["MongoDB", "Express.js", "React", "Node.js", "Redux", "JWT"],
+      "E-Furniture is a MERN stack e-commerce application for browsing and managing furniture products. It includes customer registration and login, admin and vendor dashboards for managing categories and product listings, and an Express REST API backed by MongoDB with image uploads.",
+    tags: ["MongoDB", "Express.js", "React", "Node.js"],
     image: "/projects/e-furniture.png",
     repoUrl: "https://github.com/pralay143/MERN-Stack-Project",
+    featured: false,
+  },
+  {
+    slug: "personal-portfolio",
+    title: "Personal Portfolio",
+    description:
+      "The developer portfolio you're viewing, built to showcase my projects, experience, skills, and professional background. A responsive Next.js App Router site written in TypeScript and styled with Tailwind CSS, with a contact form that delivers messages through the Resend email API.",
+    tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Resend"],
+    repoUrl: "https://github.com/pralay143/portfolio",
     featured: false,
   },
 ];

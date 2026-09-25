@@ -2,6 +2,13 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import {
+  homeDescription,
+  pageMetadata,
+  siteName,
+  siteTitle,
+  siteUrl,
+} from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -14,9 +21,25 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// Site-wide defaults. Each page sets its own description, canonical URL and
+// social metadata through pageMetadata().
+const { openGraph, twitter } = pageMetadata({
+  description: homeDescription,
+  path: "/",
+});
+
 export const metadata: Metadata = {
-  title: "Pralay — Portfolio",
-  description: "Angular Developer building scalable web experiences.",
+  metadataBase: new URL(siteUrl),
+  description: homeDescription,
+  openGraph: { ...openGraph, url: undefined },
+  twitter,
+  title: {
+    default: siteTitle,
+    template: `%s — ${siteName}`,
+  },
+  applicationName: siteName,
+  authors: [{ name: siteName, url: siteUrl }],
+  creator: siteName,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

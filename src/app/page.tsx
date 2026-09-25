@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Hero from "@/components/Hero";
 import ProjectCard from "@/components/ProjectCard";
@@ -5,6 +6,12 @@ import SkillsGrid from "@/components/SkillsGrid";
 import TechMarquee from "@/components/TechMarquee";
 import Reveal from "@/components/Reveal";
 import { projects } from "@/data/projects";
+import { homeDescription, pageMetadata } from "@/lib/site";
+
+export const metadata: Metadata = pageMetadata({
+  description: homeDescription,
+  path: "/",
+});
 
 export default function Home() {
   const featured = projects.filter((project) => project.featured);

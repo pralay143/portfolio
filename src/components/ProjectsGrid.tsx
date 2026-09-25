@@ -5,14 +5,22 @@ import ProjectCard from "@/components/ProjectCard";
 import Reveal from "@/components/Reveal";
 import type { Project } from "@/data/projects";
 
-const filters = ["All", "Angular", "React", ".NET"] as const;
-type Filter = (typeof filters)[number];
+// Each filter lists the project tags that belong to it, so e.g. ".NET"
+// matches "ASP.NET Core" and "C#" without relying on substring matches.
+const filterTags = {
+  All: [],
+  Angular: ["Angular"],
+  React: ["React", "Next.js"],
+  ".NET": [".NET", "ASP.NET Core", "C#", "EF Core"],
+} as const satisfies Record<string, readonly string[]>;
+
+type Filter = keyof typeof filterTags;
+const filters = Object.keys(filterTags) as Filter[];
 
 function matchesFilter(project: Project, filter: Filter) {
   if (filter === "All") return true;
-  return project.tags.some((tag) =>
-    tag.toLowerCase().includes(filter.toLowerCase()),
-  );
+  const tags: readonly string[] = filterTags[filter];
+  return project.tags.some((tag) => tags.includes(tag));
 }
 
 export default function ProjectsGrid({ projects }: { projects: Project[] }) {
