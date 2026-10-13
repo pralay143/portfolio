@@ -52,6 +52,16 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    slug: "resume-analyzer",
+    title: "Resume Analyzer: AI Job Match System",
+    description:
+      "Upload a PDF resume and paste a job description to get an AI-powered match score, matched and missing skills, and specific suggestions to improve the resume. Built with an Angular 18 frontend and an ASP.NET Core Web API that extracts resume text with PdfPig, uses Google Gemini or Claude for skill extraction, and stores analysis history in PostgreSQL behind a Chart.js dashboard.",
+    tags: ["Angular", "ASP.NET Core", "C#", "EF Core", "PostgreSQL", "Gemini"],
+    liveUrl: "https://resume-analyzer-amber-seven.vercel.app/analyze",
+    repoUrl: "https://github.com/pralay143/resume-analyzer",
+    featured: false,
+  },
+  {
     slug: "e-furniture",
     title: "E-Furniture E-Commerce Platform",
     description:
