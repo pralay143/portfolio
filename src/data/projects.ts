@@ -66,13 +66,13 @@ export const projects: Project[] = [
   },
   {
     slug: "e-furniture",
-    title: "E-Furniture E-Commerce Platform",
+    title: "E-Furniture: Furniture Marketplace",
     description:
-      "E-Furniture is a MERN stack e-commerce application for browsing and managing furniture products. It includes customer registration and login, admin and vendor dashboards for managing categories and product listings, and an Express REST API backed by MongoDB with image uploads.",
-    tags: ["MongoDB", "Express.js", "React", "Node.js"],
-    image: "/projects/e-furniture.jpg",
+      "A full-stack MERN furniture marketplace with a rebuilt React 19 + TypeScript storefront. Customers can search and filter products, keep a cart (even before logging in), and check out with Razorpay. The server checks every payment and reserves stock for each order. Sellers and admins have dashboards for products, categories, brands and order fulfilment. The Express REST API uses cookie-based login, roles, Zod validation and Jest tests.",
+    tags: ["React", "TypeScript", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "Razorpay"],
+    image: "/projects/e-furniture-cover.png",
     imageAlt:
-      "E-Furniture store home page with the site navigation and a living-room hero banner",
+      "E-Furniture storefront: the desktop home page in a browser window beside the mobile Shop page with search and filters in a phone frame",
     repoUrl: "https://github.com/pralay143/MERN-Stack-Project",
     featured: false,
   },
