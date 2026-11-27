@@ -8,18 +8,44 @@ import Timeline from "@/components/Timeline";
 import { ctaStyles } from "@/components/ctaStyles";
 import { experience } from "@/data/experience";
 import { projects } from "@/data/projects";
-import { homeDescription, pageMetadata } from "@/lib/site";
+import { siteConfig } from "@/config/site";
+import { homeDescription, pageMetadata, siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   description: homeDescription,
   path: "/",
 });
 
+// schema.org Person structured data for search engines.
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: siteConfig.name,
+  jobTitle: siteConfig.jobTitle,
+  url: siteUrl,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Ahmedabad",
+    addressCountry: "IN",
+  },
+  sameAs: [
+    "https://github.com/pralay143",
+    "https://www.linkedin.com/in/mehta-pralay-6555531a1/",
+    // TODO: add the YouTube channel URL here once it exists.
+  ],
+};
+
 export default function Home() {
   const featured = projects.filter((project) => project.featured);
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <Hero />
 
       <section className="flex flex-col gap-6 py-16">
