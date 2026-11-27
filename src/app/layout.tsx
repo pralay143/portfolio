@@ -31,8 +31,13 @@ const { openGraph, twitter } = pageMetadata({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   description: homeDescription,
-  openGraph: { ...openGraph, url: undefined },
+  alternates: { canonical: "/" },
+  openGraph: { ...openGraph, url: "/" },
   twitter,
+  // Paste the Search Console code into this Vercel env var; omitted when unset.
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
+  },
   title: {
     default: siteTitle,
     template: `%s — ${siteName}`,
